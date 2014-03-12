@@ -1,6 +1,6 @@
 {
   "name": "shutdown-sequence",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Invokes a series of asynchronous shutdown handlers for composable applications.",
   "homepage": "https://github.com/SLaks/shutdown-sequence",
   "author": "Schabse Laks <Dev@SLaks.net> (http://slaks.net)",
