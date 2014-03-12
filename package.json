@@ -1,0 +1,30 @@
+{
+  "name": "shutdown-sequence",
+  "version": "0.0.0",
+  "description": "Invokes a series of asynchronous shutdown handlers for composable applications.",
+  "homepage": "https://github.com/SLaks/shutdown-sequence",
+  "author": "Schabse Laks <Dev@SLaks.net> (http://slaks.net)",
+  "global": true,
+  "keywords": [
+    "shutdown",
+    "sequence",
+    "promise",
+    "async"
+  ],
+  "main": "shutdown-sequence.js",
+  "dependencies": {
+    "q": "~1.0.1"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "mocha-as-promised": "~2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SLaks/shutdown-sequence"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  }
+}
