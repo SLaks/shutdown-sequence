@@ -66,7 +66,7 @@ ShutdownSequence.prototype.shutdown = function () {
 			.then(function () { return fn.fn(); })
 			.fail(function (err) { self.emit("error", err, fn.name); });
 	}, Q.resolve())
-		.then(function() { self.emit('shutdownFinished'); });
+		.then(function () { self.emit('shutdownFinished'); });
 };
 
 /**

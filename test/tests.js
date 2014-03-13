@@ -16,7 +16,7 @@ describe('ShutdownSequence', function () {
 		shutdown.add(results.push.bind(results, 2));
 		shutdown.add(results.push.bind(results, 1));
 
-		return shutdown.shutdown().then(function() {
+		return shutdown.shutdown().then(function () {
 			assert.deepEqual(results, [1, 2, 3]);
 		});
 	});
@@ -40,8 +40,8 @@ describe('ShutdownSequence', function () {
 
 		shutdown.setHeadOrder('a', 'b');
 		shutdown.setTailOrder('x', 'y');
-		
-		return shutdown.shutdown().then(function() {
+
+		return shutdown.shutdown().then(function () {
 			assert.deepEqual(results, [1, 2, 3, 4, 5, 6, 7, 8, 9]);
 		});
 	});
@@ -51,9 +51,9 @@ describe('ShutdownSequence', function () {
 		var results = [];
 
 		shutdown.add(results.push.bind(results, 2));
-		shutdown.add(function() { return Q.delay(200).then(function() { results.push(1); }); });
+		shutdown.add(function () { return Q.delay(200).then(function () { results.push(1); }); });
 
-		return shutdown.shutdown().then(function() {
+		return shutdown.shutdown().then(function () {
 			assert.deepEqual(results, [1, 2]);
 		});
 	});
@@ -63,15 +63,15 @@ describe('ShutdownSequence', function () {
 		var results = [];
 
 		shutdown.add(results.push.bind(results, 3));
-		shutdown.add('func2', function() { throw 2; });
+		shutdown.add('func2', function () { throw 2; });
 		shutdown.add('func1', Q.reject.bind(null, 1));
 
-		shutdown.addListener('error', function(err, name){
+		shutdown.addListener('error', function (err, name) {
 			assert.equal(name, "func" + err);
 			results.push(err);
 		});
 
-		return shutdown.shutdown().then(function() {
+		return shutdown.shutdown().then(function () {
 			assert.deepEqual(results, [1, 2, 3]);
 		});
 	});
